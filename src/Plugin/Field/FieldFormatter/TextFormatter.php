@@ -27,7 +27,7 @@ class TextFormatter extends FormatterBase {
   public static function defaultSettings() {
     return [
       'tokenized_text' => '',
-    ];
+    ] + parent::defaultSettings();
   }
 
   /**
@@ -36,7 +36,7 @@ class TextFormatter extends FormatterBase {
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $entity_type = $this->fieldDefinition->getTargetEntityTypeId();
 
-    $form['tokenized_text'] = [
+    $element['tokenized_text'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Pattern'),
       '#default_value' => $this->getSetting('tokenized_text'),
@@ -46,11 +46,11 @@ class TextFormatter extends FormatterBase {
       '#min_tokens' => 1,
     ];
 
-    $form['token_help'] = [
+    $element['token_help'] = [
       '#theme' => 'token_tree_link',
       '#token_types' => [$entity_type],
     ];
-    return $form;
+    return $element;
   }
 
   /**
@@ -69,8 +69,8 @@ class TextFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
+    $entity = $items->getEntity();
     foreach ($items as $delta => $item) {
-      $entity = $item->getEntity();
       $value = $item->value;
       if ($tokenized_text = $this->getSetting('tokenized_text')) {
         $value = \Drupal::token()->replace($tokenized_text, [$entity->getEntityType()->id() => $entity]);

@@ -46,7 +46,7 @@ class EntityReferenceFormatter extends EntityReferenceLabelFormatter {
       $token_types[] = $target_entity_type;
     }
 
-    $form['tokenized_text'] = [
+    $element['tokenized_text'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Pattern'),
       '#default_value' => $this->getSetting('tokenized_text'),
@@ -56,18 +56,18 @@ class EntityReferenceFormatter extends EntityReferenceLabelFormatter {
       '#min_tokens' => 1,
     ];
 
-    $form['token_help'] = [
+    $element['token_help'] = [
       '#theme' => 'token_tree_link',
       '#token_types' => $token_types,
     ];
 
-    $form['link'] = [
+    $element['link'] = [
       '#title' => t('Link label to the referenced entity'),
       '#type' => 'checkbox',
       '#default_value' => $this->getSetting('link'),
     ];
 
-    return $form;
+    return $element;
   }
 
   /**

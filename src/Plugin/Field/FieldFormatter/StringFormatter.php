@@ -106,7 +106,7 @@ class StringFormatter extends FormatterBase implements ContainerFactoryPluginInt
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $entity_type = $this->fieldDefinition->getTargetEntityTypeId();
 
-    $form['tokenized_text'] = [
+    $element['tokenized_text'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Pattern'),
       '#default_value' => $this->getSetting('tokenized_text'),
@@ -116,20 +116,20 @@ class StringFormatter extends FormatterBase implements ContainerFactoryPluginInt
       '#min_tokens' => 1,
     ];
 
-    $form['token_help'] = [
+    $element['token_help'] = [
       '#theme' => 'token_tree_link',
       '#token_types' => [$entity_type],
     ];
 
     $entity_type = $this->entityTypeManager->getDefinition($this->fieldDefinition->getTargetEntityTypeId());
 
-    $form['link_to_entity'] = [
+    $element['link_to_entity'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Link to the @entity_label', ['@entity_label' => $entity_type->getLabel()]),
       '#default_value' => $this->getSetting('link_to_entity'),
     ];
 
-    return $form;
+    return $element;
   }
 
   /**
