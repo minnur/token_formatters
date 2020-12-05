@@ -1,0 +1,42 @@
+# Schema for the configuration files of the token_formatters module.
+
+field.formatter.settings.token_formatters_string:
+  type: mapping
+  label: 'Tokenized String'
+  mapping:
+    tokenized_text:
+      type: string
+      label: 'Pattern'
+    link_to_entity:
+      type: boolean
+      label: 'Link to the entity'
+
+field.formatter.settings.token_formatters_reference:
+  type: mapping
+  label: 'Tokenized Entity Reference label'
+  mapping:
+    tokenized_text:
+      type: string
+      label: 'Pattern'
+    link:
+      type: boolean
+      label: 'Show links'
+
+field.formatter.settings.token_formatters_text:
+  type: mapping
+  label: 'Tokenized Text'
+  mapping:
+    tokenized_text:
+      type: string
+      label: 'Pattern'
+
+field.formatter.settings.token_formatters_text_summary:
+  type: mapping
+  label: 'Tokenized Text (summary)'
+  mapping:
+    trim_length:
+      type: integer
+      label: 'Trim length'
+    tokenized_text:
+      type: string
+      label: 'Pattern'
