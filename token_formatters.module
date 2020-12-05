@@ -1,0 +1,22 @@
+<?php
+
+use Drupal\token_formatters\Form\LicenseForm;
+
+/**
+ * Implements hook_update_premium().
+ */
+function token_formatters_update_premium() {
+  $config = \Drupal::config(LicenseForm::CONFIG_NAME);
+  return [
+    [
+      'name' => 'token_formatters',
+      'category' => 'modules',
+      'project_url' => 'https://downloads.minnur.com/drupal/token-formatters',
+      'update_server' => 'https://downloads.minnur.com/update/drupal/token-formatters',
+      'parameters' => [
+        'e' => $config->get('license_email'),
+        'l' => $config->get('license_number'),
+      ],
+    ],
+  ];
+}

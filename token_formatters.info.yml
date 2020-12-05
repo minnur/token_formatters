@@ -1,5 +1,5 @@
 name: 'Token Formatters'
-description: 'Provides additional formatters for various field types.'
+description: 'Provides additional tokenized formatters for various field types.'
 package: 'Premium'
 type: module
 version: 1.0.1
