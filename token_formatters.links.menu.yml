@@ -1,5 +1,0 @@
-token_formatters.license:
-  title: 'Token Patterns License'
-  route_name: token_formatters.license
-  description: 'Token Patterns premium module license information.'
-  parent: system.admin_config_content

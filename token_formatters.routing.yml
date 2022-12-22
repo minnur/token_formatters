@@ -1,7 +1,0 @@
-token_formatters.license:
-  path: '/admin/config/content/token-formatters/liense'
-  defaults:
-    _title: 'Token Patterns License'
-    _form: '\Drupal\token_formatters\Form\LicenseForm'
-  requirements:
-    _permission: 'administer site configuration'

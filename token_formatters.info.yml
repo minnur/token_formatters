@@ -1,9 +1,7 @@
 name: 'Token Formatters'
-description: 'Provides additional tokenized formatters for various field types.'
-package: 'Premium'
+description: 'Provides additional formatters for various field types.'
 type: module
-version: 1.0.2
-configure: token_formatters.license
-core_version_requirement: ^8.8 || ^9
+version: 1.0.1
+core_version_requirement: ^9 || ^10
 dependencies:
   - token:token
